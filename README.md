@@ -505,186 +505,274 @@ Shared Data
 
 ```text
 Humanoid-Stereo-Navigation/
-│
-├── README.md
-├── LICENSE
+|
 ├── CMakeLists.txt
-├── package.xml
-│
-├── config/
+├── LICENSE
+├── README.md
+├── assets
+│   ├── chessboard
+│   ├── icons
+│   ├── meshes
+│   └── textures
+├── config
 │   ├── camera.yaml
-│   ├── stereo.yaml
+│   ├── gazebo.yaml
 │   ├── navigation.yaml
 │   ├── robot.yaml
-│   └── gazebo.yaml
-│
-├── datasets/
-│   ├── calibration/
-│   │   ├── left/
-│   │   └── right/
-│   │
-│   ├── stereo_images/
-│   │   ├── left/
-│   │   └── right/
-│   │
-│   └── maps/
-│
-├── include/
-│   ├── vision/
-│   │   ├── StereoCameraDriver.h
-│   │   ├── CameraCalibration.h
-│   │   ├── DepthEstimator.h
-│   │   ├── PointCloudGenerator.h
-│   │   ├── ObstacleDetector.h
-│   │   ├── FreeSpaceDetector.h
-│   │   └── NavigationGoalGenerator.h
-│   │
-│   ├── control/
-│   │   ├── RobotStateEstimator.h
+│   └── stereo.yaml
+├── data
+│   ├── calibration_result
+│   ├── logs
+│   ├── map
+│   └── trajectory
+├── datasets
+│   ├── calibration
+│   │   ├── left
+│   │   └── right
+│   ├── maps
+│   └── stereo_images
+│       ├── left
+│       └── right
+├── docs
+│   ├── architecture
+│   ├── diagrams
+│   ├── presentations
+│   │   └── README.md
+│   ├── references
+│   │   └── README.md
+│   └── reports
+├── images
+│   ├── banner.png
+│   ├── depth_map.png
+│   ├── disparity_map.png
+│   ├── final_result.png
+│   ├── folder_architecture.png
+│   ├── free_space_map.png
+│   ├── gazebo_simulation.png
+│   ├── humanoid_stereo_camera.png
+│   ├── navigation_path.png
+│   ├── obstacle_map.png
+│   ├── point_cloud.png
+│   ├── project_overview.png
+│   ├── robot_motion.png
+│   ├── rviz_visualization.png
+│   ├── stereo_input.png
+│   └── system_workflow.png
+├── include
+│   ├── control
+│   │   ├── GazeboSimulation.h
 │   │   ├── Localization.h
-│   │   ├── PathPlanner.h
-│   │   ├── TrajectoryGenerator.h
-│   │   ├── WalkingController.h
 │   │   ├── NavigationNode.h
-│   │   └── GazeboSimulation.h
-│   │
-│   ├── interfaces/
-│   │   ├── PointCloudData.h
-│   │   ├── ObstacleList.h
+│   │   ├── PathPlanner.h
+│   │   ├── RobotStateEstimator.h
+│   │   ├── TrajectoryGenerator.h
+│   │   └── WalkingController.h
+│   ├── interfaces
 │   │   ├── FreeSpaceMap.h
 │   │   ├── NavigationGoal.h
+│   │   ├── ObstacleList.h
+│   │   ├── PointCloudData.h
 │   │   └── RobotState.h
-│   │
-│   └── utils/
-│       ├── Logger.h
-│       ├── Timer.h
-│       └── FileManager.h
-│
-├── src/
-│   ├── vision/
-│   │   ├── StereoCameraDriver.cpp
-│   │   ├── CameraCalibration.cpp
-│   │   ├── DepthEstimator.cpp
-│   │   ├── PointCloudGenerator.cpp
-│   │   ├── ObstacleDetector.cpp
-│   │   ├── FreeSpaceDetector.cpp
-│   │   └── NavigationGoalGenerator.cpp
-│   │
-│   ├── control/
-│   │   ├── RobotStateEstimator.cpp
-│   │   ├── Localization.cpp
-│   │   ├── PathPlanner.cpp
-│   │   ├── TrajectoryGenerator.cpp
-│   │   ├── WalkingController.cpp
-│   │   ├── NavigationNode.cpp
-│   │   └── GazeboSimulation.cpp
-│   │
-│   ├── utils/
-│   │   ├── Logger.cpp
-│   │   ├── Timer.cpp
-│   │   └── FileManager.cpp
-│   │
-│   └── main.cpp
-│
-├── launch/
-│   ├── stereo.launch.py
+│   ├── utils
+│   │   ├── FileManager.h
+│   │   ├── Logger.h
+│   │   └── Timer.h
+│   └── vision
+│       ├── CameraCalibration.h
+│       ├── DepthEstimator.h
+│       ├── FreeSpaceDetector.h
+│       ├── NavigationGoalGenerator.h
+│       ├── ObstacleDetector.h
+│       ├── PointCloudGenerator.h
+│       └── StereoCameraDriver.h
+├── launch
+│   ├── gazebo.launch.py
 │   ├── navigation.launch.py
-│   └── gazebo.launch.py
-│
-├── worlds/
-│   ├── office.world
-│   ├── warehouse.world
-│   └── indoor.world
-│
-├── models/
-│   ├── humanoid_robot/
-│   └── obstacles/
-│
-├── rviz/
-│   └── navigation.rviz
-│
-├── outputs/
-│   ├── depth/
-│   ├── pointcloud/
-│   ├── obstacle_map/
-│   ├── free_space/
-│   ├── path/
-│   ├── logs/
-│   └── screenshots/
-│
-├── tests/
-│   ├── vision/
-│   ├── control/
-│   └── integration/
-│
-└── docs/
-    ├── architecture/
-    ├── diagrams/
-    └── reports/
+│   └── stereo.launch.py
+├── models
+│   ├── environment
+│   ├── furniture
+│   ├── humanoid_robot
+│   └── obstacles
+├── outputs
+│   ├── depth
+│   ├── disparity
+│   ├── free_space
+│   ├── logs
+│   ├── obstacle_map
+│   ├── path
+│   ├── pointcloud
+│   ├── screenshots
+│   └── videos
+├── package.xml
+├── requirements.txt
+├── rviz
+│   ├── navigation.rviz
+│   ├── pointcloud.rviz
+│   └── stereo.rviz
+├── scripts
+│   ├── calibration.py
+│   ├── clean_outputs.sh
+│   ├── launch_all.sh
+│   ├── run_navigation.sh
+│   └── stereo_capture.py
+├── src
+│   ├── control
+│   │   ├── GazeboSimulation.cpp
+│   │   ├── Localization.cpp
+│   │   ├── NavigationNode.cpp
+│   │   ├── PathPlanner.cpp
+│   │   ├── RobotStateEstimator.cpp
+│   │   ├── TrajectoryGenerator.cpp
+│   │   └── WalkingController.cpp
+│   ├── main.cpp
+│   ├── utils
+│   │   ├── FileManager.cpp
+│   │   ├── Logger.cpp
+│   │   └── Timer.cpp
+│   └── vision
+│       ├── CameraCalibration.cpp
+│       ├── DepthEstimator.cpp
+│       ├── FreeSpaceDetector.cpp
+│       ├── NavigationGoalGenerator.cpp
+│       ├── ObstacleDetector.cpp
+│       ├── PointCloudGenerator.cpp
+│       └── StereoCameraDriver.cpp
+├── tests
+│   ├── control
+│   ├── integration
+│   └── vision
+├── tools
+│   ├── dataset_downloader.py
+│   ├── image_converter.py
+│   └── pcd_viewer.py
+└── worlds
+    ├── indoor.world
+    ├── office.world
+    └── warehouse.world
 ```
 
 ---
 
-# Folder Responsibility
+# 📂 Folder Responsibility
 
-```text
-+----------------------+--------------+-----------------------------------------------+
-| Folder               | Owner        | Responsibility                                |
-+----------------------+--------------+-----------------------------------------------+
-| config/              | Both         | Configuration files                           |
-| datasets/            | Hiep         | Stereo images and input datasets              |
-| include/vision/      | Hiep         | Vision module header files                    |
-| src/vision/          | Hiep         | Vision module implementation                  |
-| include/control/     | Thong        | Control module header files                   |
-| src/control/         | Thong        | Control module implementation                 |
-| include/interfaces/  | Both         | Shared data structures and interfaces         |
-| launch/              | Thong        | ROS2 launch files                             |
-| worlds/              | Thong        | Gazebo world files                            |
-| models/              | Thong        | Robot model and environment models            |
-| rviz/                | Thong        | RViz2 configuration                           |
-| outputs/             | Both         | Generated outputs                             |
-| tests/               | Both         | Unit tests and integration tests              |
-| docs/                | Both         | Documentation and system diagrams             |
-+----------------------+--------------+-----------------------------------------------+
-```
+| Folder | Owner | Responsibility |
+|---------|-------|----------------|
+| assets/ | Both | Chessboard (Hiệp), Icons/Meshes/Textures (Thông) |
+| config/ | Both | Camera/Stereo (Hiệp), Navigation/Robot/Gazebo (Thông) |
+| data/ | Both | Calibration Result (Hiệp), Logs/Map/Trajectory (Thông) |
+| datasets/ | Hiệp | Stereo images, Calibration images |
+| docs/ | Both | Architecture, Diagrams, Reports |
+| images/ | Both | Documentation images and screenshots |
+| include/control/ | Thông | Control module headers |
+| include/interfaces/ | Both | Shared interfaces |
+| include/utils/ | Both | Utility headers |
+| include/vision/ | Hiệp | Vision module headers |
+| launch/ | Thông | ROS2 launch files |
+| models/ | Thông | Robot and environment models |
+| outputs/ | Both | Vision outputs (Hiệp), Navigation outputs (Thông) |
+| rviz/ | Thông | RViz configuration |
+| scripts/ | Both | Calibration (Hiệp), Navigation scripts (Thông) |
+| src/control/ | Thông | Control implementation |
+| src/utils/ | Both | Utility implementation |
+| src/vision/ | Hiệp | Vision implementation |
+| tests/ | Both | Vision, Control and Integration tests |
+| tools/ | Hiệp | Dataset/Image/PCD tools |
+| worlds/ | Thông | Gazebo worlds |
 
 ---
 
-# Folder Ownership
+# 👥 Folder Ownership
 
 ```text
 ==============================================================
                     PROJECT OWNERSHIP
 ==============================================================
 
-                     Hiệp (Vision)
+                    🎥 Hiệp (Vision & Perception)
+
+    assets/chessboard/
 
     datasets/
+    data/calibration_result/
+
     include/vision/
     src/vision/
 
+    outputs/depth/
+    outputs/disparity/
+    outputs/pointcloud/
+    outputs/obstacle_map/
+    outputs/free_space/
+
+    scripts/calibration.py
+    scripts/stereo_capture.py
+
+    tests/vision/
+
+    tools/
+
 --------------------------------------------------------------
 
-                    Thông (Control)
+                  🎮 Thông (Control & Navigation)
+
+    assets/meshes/
+    assets/textures/
+
+    data/logs/
+    data/map/
+    data/trajectory/
 
     include/control/
     src/control/
+
     launch/
-    worlds/
     models/
     rviz/
+    worlds/
+
+    outputs/path/
+    outputs/screenshots/
+    outputs/videos/
+
+    scripts/run_navigation.sh
+    scripts/launch_all.sh
+
+    tests/control/
 
 --------------------------------------------------------------
 
-                    Shared
+                        🤝 Shared
 
     config/
+    docs/
+    images/
+
     include/interfaces/
     include/utils/
+
     src/utils/
-    outputs/
-    tests/
-    docs/
+
+    outputs/logs/
+
+    tests/integration/
+
+    scripts/clean_outputs.sh
+
+    CMakeLists.txt
+    package.xml
+    requirements.txt
+
+    LICENSE
+    README.md
 
 ==============================================================
 ```
+
+# 👨‍💻 Development Responsibility
+
+| Member | Main Responsibility |
+|---------|---------------------|
+| Hiệp | Stereo Vision, Depth Estimation, Point Cloud, Obstacle Detection, Free Space Detection |
+| Thông | Robot Localization, Navigation, Motion Planning, Walking Control, Gazebo Simulation |
+| Shared | Interfaces, Documentation, Configuration, Testing |
