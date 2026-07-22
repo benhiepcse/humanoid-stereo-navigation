@@ -1,8 +1,8 @@
-# Project — Humanoid Stereo Navigation
+# 🤖 Project — Humanoid Stereo Navigation
 
 ---
 
-# Overview
+# 📖 Overview
 
 Humanoid Stereo Navigation is a robotics project that enables a humanoid robot to
 perceive its surrounding environment using a stereo camera system and navigate
@@ -27,29 +27,29 @@ visual information into real robot motion, serving as the bridge between
 
 ---
 
-# Project Goal
+# 🎯 Project Goal
 
 Build a complete humanoid navigation system capable of
 
-• Perceiving the environment using Stereo Vision
+• 🎥 Perceiving the environment using Stereo Vision
 
-• Estimating depth information
+• 📏 Estimating depth information
 
-• Generating Point Clouds
+• ☁️ Generating Point Clouds
 
-• Detecting obstacles
+• 🚧 Detecting obstacles
 
-• Identifying free navigation space
+• 🟢 Identifying free navigation space
 
-• Planning collision-free paths
+• 🗺️ Planning collision-free paths
 
-• Controlling humanoid movement
+• 🦿 Controlling humanoid movement
 
-• Navigating safely inside Gazebo simulation
+• 🏃 Navigating safely inside Gazebo simulation
 
 ---
 
-# System Workflow
+# 🔄 System Workflow
 
 ```text
                     ┌──────────────────────┐
@@ -324,7 +324,7 @@ Project 7
 Embodied AI Robot
 ```
 
-# Task Distribution
+# 👥 Task Distribution
 
 ```text
 ===============================================================
@@ -501,7 +501,7 @@ Shared Data
 • Navigation Goal
 ```
 
-# Folder Architecture
+# 📂 Folder Architecture
 
 ```text
 Humanoid-Stereo-Navigation/
